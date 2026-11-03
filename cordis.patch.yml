@@ -1,0 +1,14 @@
+# dsh-code-flow cordis bundle patch：宿主半边 + 浏览器 roster（dsh.client）——
+# 一行两用：code-flow settings 命名空间注册、纪律段注册、速度校准水龙、
+# 设置页「编程纪律」行。
+# config:
+#   sectionOrder  纪律段 order（默认 2190，越大越靠后）
+#   sanitize      速度校准水龙开关（默认 true；false = 只注入纪律段）
+#   extraRules    追加自定义工程规则（字符串数组；构建时净化：≤10 条、每条 ≤300 字）
+- insert:
+    - id: code-flow
+      name: dsh-code-flow
+      config:
+        sectionOrder: 2190
+        sanitize: true
+        extraRules: []

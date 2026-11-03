@@ -1,0 +1,53 @@
+{
+  "name": "dsh-code-flow",
+  "version": "0.1.0",
+  "description": "DSH 编程纪律插件（特化 agent 编程能力）：质量差与速度慢同源——没有门禁的流水线。七段流水线（先读后写/先规格/最小正确改动/只修根因/由窄到宽验证/先跑通再优化/完成=证据）+ 速度经济学 + 三档（均衡/质量/速度）；assemble 水龙扫描「先跑起来就行/别想太多」类反工程指令并校准为「快=一次做对」，只追加不删改宿主内容",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-api-remotes"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.0-rc.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.18.4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.4",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.0-rc.2",
+    "@types/react": "~18.3.1",
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-store": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-connection": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-locale": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-api-remotes": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-renderer": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-client-ui-settings": "^0.2.0-rc.2"
+  }
+}
